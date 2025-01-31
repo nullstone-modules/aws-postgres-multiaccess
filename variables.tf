@@ -24,6 +24,15 @@ EOF
   default     = ""
 }
 
+variable "additional_database_names" {
+  type        = set(string)
+  description = <<EOF
+Additional databases to grant access to in the postgres cluster.
+For each database, the user will be granted owner permissions to the database schema.
+EOF
+  default     = []
+}
+
 // We are using ns_env_variables to interpolate database_name
 data "ns_env_variables" "db_name" {
   input_env_variables = tomap({
@@ -33,15 +42,6 @@ data "ns_env_variables" "db_name" {
     DATABASE_NAME   = coalesce(var.database_name, local.block_name)
   })
   input_secrets = tomap({})
-}
-
-variable "additional_database_names" {
-  type        = set(string)
-  description = <<EOF
-Additional databases to grant access to in the postgres cluster.
-For each database, the user will be granted owner permissions to the database schema.
-EOF
-  default     = []
 }
 
 locals {

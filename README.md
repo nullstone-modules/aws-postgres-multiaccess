@@ -1,4 +1,4 @@
-# aws-postgres-access
+# aws-postgres-multiaccess
 
 Nullstone capability to grant access for a postgres database to a service.
 - Grant network access to the postgres cluster.
