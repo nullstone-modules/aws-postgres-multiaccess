@@ -7,3 +7,8 @@ resource "random_password" "this" {
   // '%' is an acceptable character but causes confusion with url encoding, let's drop it
   override_special = "!#$&*()-_=+[]{}<>:?"
 }
+
+locals {
+  username = local.resource_name
+  password = random_password.this.result
+}

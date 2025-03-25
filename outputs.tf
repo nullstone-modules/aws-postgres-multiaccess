@@ -19,7 +19,7 @@ output "secrets" {
   value = [
     {
       name  = "POSTGRES_PASSWORD"
-      value = random_password.this.result
+      value = local.password
     },
     {
       name  = "POSTGRES_URL"

@@ -1,7 +1,7 @@
 org_name: nullstone
 name: aws-postgres-multiaccess
 friendly_name: Postgres Multi-Access
-description: Grants an application access to a primary mysql database as well as additional databases
+description: Grants an application access to a primary postgresql database as well as additional databases
 category: capability
 subcategory: datastores
 provider_types:
