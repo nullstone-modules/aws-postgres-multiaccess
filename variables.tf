@@ -50,7 +50,7 @@ locals {
 }
 
 locals {
-  clean_additional_database_names = [for db in var.additional_database_names : db if trim(coalesce(db, "")) != ""]
+  clean_additional_database_names = toset([for db in var.additional_database_names : db if trim(coalesce(db, ""), " ") != ""])
 }
 
 data "ns_env_variables" "additional_db_names" {
