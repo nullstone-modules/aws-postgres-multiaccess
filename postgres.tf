@@ -15,7 +15,4 @@ locals {
   db_admin_invoker   = try(data.ns_connection.postgres.outputs.db_admin_invoker, null)
   db_admin_func_url  = try(data.ns_connection.postgres.outputs.db_admin_function_url, "")
   db_admin_version   = try(data.ns_connection.postgres.outputs.db_admin_version, "0.6")
-
-  // Defaults to false so plans never send ensure_role_password to a lambda that would reject it
-  db_admin_ensure_password = try(data.ns_connection.postgres.outputs.db_admin_ensure_password, false)
 }
